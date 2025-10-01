@@ -19,6 +19,8 @@ class UserController extends Controller
                 "password" => bcrypt($data["password"])
             ]);
 
+            $user->sendEmailVerificationNotification();
+
             return response()->json([
                 "status"=>200,
                 "message"=>"User Registered",
